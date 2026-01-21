@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Colores</title>
+</head>
+<body>
+
+  <div id="azul" style="width:200px;height:200px;background-color:blue;"></div>
+  <div id="rojo" style="width:200px;height:200px;background-color:red;"></div>
+  <div id="verde" style="width:200px;height:200px;background-color:green;"></div>
+  <div id="amarillo" style="width:200px;height:200px;background-color:yellow;"></div>
+
+  <div id="key" style="width:200px;height:200px;background-color:white;border:1px solid black;"></div>
+
+  <script>
+    const divs = document.querySelectorAll('#azul, #rojo, #verde, #amarillo');
+
+    divs.forEach(div => {
+      div.addEventListener('click', () => {
+        div.style.backgroundColor = 'black';
+      });
+    });
+
+    let colorActual = '';
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'a') {
+        colorActual = 'pink';
+        document.getElementById('key').style.backgroundColor = colorActual;
+      } else if (event.key === 's') {
+        colorActual = 'orange';
+        document.getElementById('key').style.backgroundColor = colorActual;
+      } else if (event.key === 'd') {
+        colorActual = 'skyblue';
+        document.getElementById('key').style.backgroundColor = colorActual;
+      } else if (event.key === 'q') {
+        crearDiv('purple');
+      } else if (event.key === 'w') {
+        crearDiv('gray');
+      } else if (event.key === 'e') {
+        crearDiv('brown');
+      }
+    });
+
+    function crearDiv(color) {
+      const nuevoDiv = document.createElement('div');
+      nuevoDiv.style.width = '200px';
+      nuevoDiv.style.height = '200px';
+      nuevoDiv.style.backgroundColor = color;
+      document.body.appendChild(nuevoDiv);
+    }
+  </script>
+
+</body>
+</html>
